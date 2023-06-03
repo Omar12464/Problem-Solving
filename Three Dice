@@ -1,0 +1,13 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b,c;
+    cin>>a>>b>>c;
+    int d=7-a,e=7-b,v=7-c;
+    cout<<d+e+v;
+
+    return 0;
+}
