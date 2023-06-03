@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,s;
+    for(int i=1;i<=5;i++){
+     for(int j=1;j<=5;j++){
+        int p;
+        cin>>p;
+       if(p){
+        n=i;
+        s=j;
+       }
+     }
+    }
+    cout<<abs(n-3)+abs(s-3);
+    return 0;
+}
