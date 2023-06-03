@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+const int N=15000+9;
+int a[N],b[N];
+int main()
+{
+   int t;
+   cin>>t;
+   for(int q=0;q<t;q++){
+    int n,k;
+    cin>>n>>k;
+    for(int i=0;i<n;i++){
+       cin>>a[i];
+    }
+    for(int i=0;i<n;++i){
+       cin>>b[i];
+    }
+    for(int l=0;l<k;l++){
+       int mx=0,mn=0;
+       for(int i=0;i<n;++i){
+          if(b[mx]<b[i])mx=i;
+          if(a[mn]>a[i])mn=i;
+     }
+      if(a[mn]<b[mx]){
+        int tmp=a[mn];
+        a[mn]=b[mx];
+        b[mx]=tmp;
+      }
+    }
+     int ans=0;
+     for(int i=0;i<n;i++)ans+=a[i];
+     cout<<ans<<endl;
+   }
+    return 0;
+}
