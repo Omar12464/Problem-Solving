@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  int n;
+  cin>>n;
+  int licky=0;
+  for(int i=1;i<=n;i++){
+    if(n%i==0){
+      int x=i,valid=1;
+      while(x>0){
+        if(x%10!=4&&x%10!=7)valid=0;
+        x/=10;
+      }
+      if(valid)licky=1;
+    }
+  }
+  if(licky)cout<<"YES";
+  else cout<<"NO";
+}
