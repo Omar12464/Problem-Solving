@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--){
+   int n;
+   cin>>n;
+   vector<int> a(n),dx(n+1);
+   for(int i=0;i<n;i++){
+    cin>>a[i];
+    dx[a[i]]=i;
+   }
+   int mx=n;
+   vector<int> cur,ans;
+   for(int i=n-1;i>=0;--i){
+    cur.push_back(a[i]);
+    if(a[i]==mx){
+        while(!cur.empty()){
+            ans.push_back(cur.back());
+            cur.pop_back();
+        }
+        while(mx>0&&dx[mx]>=i)mx--;
+    }
+   }
+   for(auto i:ans)cout<<i<<" ";
+   cout<<"\n";
+  }
+return 0;
+}
+
