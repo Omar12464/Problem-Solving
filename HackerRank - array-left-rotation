@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <deque>
+using namespace std;
+
+
+int main()
+{
+    int n,d;
+    cin>>n>>d;
+    deque<int> q;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        q.push_back(x);
+    }
+    for(int i=0;i<d;i++){
+        q.push_back(q.front());
+        q.pop_front();}
+    for(auto i:q)cout<<i<<" ";
+    return 0;
+}
