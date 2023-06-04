@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+
+#include <algorithm>
+using namespace std;
+
+
+int main()
+{
+    int n;
+    string s;
+    cin>>n>>s;
+    vector<int> a(n),l;
+    for(int i=0;i<n;i++){
+    cin>>a[i];
+    if(s[i]=='L')l.push_back(a[i]);
+    }
+    int j=0,answer=1e9;
+    for(int i=0;i<n;i++){
+     if(s[i]=='R'){
+       while(j<l.size()&&l[j]<=a[i]){
+         j++;
+       }
+       if(j==l.size())break;
+       answer=min(answer,(l[j]-a[i])/2);
+     }
+    }
+    if(answer==1e9)cout<<-1;
+    else cout<<answer;
+    return 0;
+}
