@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <algorithm>
+using namespace std;
+
+
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    vector<int> b(n);
+    deque<int> q;
+    for(int i=0;i<n;++i){
+        cin>>b[i];
+        q.push_back(i);
+        }
+    int answer=0;
+    while(!q.empty()){
+       int cur=q.front();
+        q.pop_front();
+        answer=cur;
+        b[cur]-=m;
+        if(b[cur]>0)q.push_back(cur);
+   }cout<<answer+1;
+
+    return 0;
+}
