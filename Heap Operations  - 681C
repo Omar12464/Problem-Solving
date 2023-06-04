@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n;
+    cin>>n;
+    priority_queue<int,vector<int>,greater<>> a;
+    vector<string> ans;
+    while(n--){
+        string x;
+        cin>>x;
+        if(x=="insert"){
+            int v;
+            cin>>v;
+            a.push(v);
+            ans.push_back(x+" "+to_string(v));
+        }else if(x=="removeMin"){
+          if(a.empty()){
+            ans.push_back("insert 0");
+        }else a.pop();
+        ans.push_back(x);
+        }
+        else if(x=="getMin"){
+            int s;
+            cin>>s;
+            while(a.size()&&a.top()<s){
+                a.pop();
+                ans.push_back("removeMin");
+            }
+          if(a.empty()||a.top()>s){
+            a.push(s);
+            ans.push_back("insert "+to_string(s));
+          }
+          ans.push_back(x+" "+to_string(s));
+        }
+
+    }
+     cout<<ans.size()<<"\n";
+        for(auto i:ans)cout<<i<<"\n";
+
+    }
