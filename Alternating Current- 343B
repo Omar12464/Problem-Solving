@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+
+ bool yesOr(string s){
+    bool flag=true;
+    int temp=0;
+       for(int i=0;i<s.length();i++){
+        if(s[i]=='(')
+            temp++;
+        else temp--;
+        if(temp<0){
+            flag=false;
+            break;
+        }
+        if(temp!=0)flag=false;
+    }
+ }
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+
+    char input[100010];
+
+    scanf("%s", input);
+
+    vector<char> st;
+
+    int len = strlen(input);
+    for(int i=0; i<len; i++)
+    {
+        if(st.size() == 0)
+            st.push_back(input[i]);
+        else
+        {
+            if(st[st.size()-1] == input[i])
+                st.pop_back();
+            else
+                st.push_back(input[i]);
+        }
+    }
+
+    if(st.size() == 0)
+        printf("Yes\n");
+    else
+        printf("No\n");
+
+    return 0;
+}
