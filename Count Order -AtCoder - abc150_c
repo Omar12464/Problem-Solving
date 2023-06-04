@@ -1,0 +1,31 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+bool check(int a[],int b[],int n){
+  for(int i=0;i<n;i++){
+    if(a[i]!=b[i])return false;
+  }
+   return true;
+}
+
+int main() {
+  int a[100],p[100],q[100],n;
+  cin>>n;
+  for(int i=0;i<n;i++){
+    a[i]=i+1;
+  }
+  for(int i=0;i<n;i++){
+    cin>>p[i];
+  }
+  for(int i=0;i<n;i++){
+    cin>>q[i];
+  }
+  int index=1,x,y;
+  do{
+    if(check(a,p,n))x=index;
+    if(check(a,q,n))y=index;
+    index++;
+  }while(next_permutation(a,a+n));
+  cout<<abs(x-y);
+}
